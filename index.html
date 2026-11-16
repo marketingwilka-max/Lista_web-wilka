@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wilka Parts Inversiones - Lista de precios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker"><i class="ri-price-tag-3-line" aria-hidden="true"></i>Lista promocional · Actualizada 10/11/2026</p>
+      <h1>Lista de precios</h1>
+      <p class="lead">Repuestos automotrices de alta rotación, totalmente surtidos. Consulta por tus descuentos de hasta 18% cancelando en divisas.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/wilkaparts" target="_blank" rel="noopener">Instagram @wilkaparts</a>
+      </div>
+      <p class="stamp"><i class="ri-map-pin-2-line" aria-hidden="true"></i> Michelena, Valencia · Compra mínima 90$</p>
+    </div>
+    <div class="logo-card">
+      <img src="New_-_18-removebg-preview (1).png" alt="Wilka Parts Inversiones">
+    </div>
+  </div>
+</header>
+
+<div class="band" role="note">
+  <div class="wrap">
+    <strong>Hasta 18% de descuento</strong>
+    <span>Pagos en divisas · Compra totalmente surtida · Envío gratis a nivel nacional desde 200$</span>
+  </div>
+</div>
+
+<main>
+  <section class="terms" aria-labelledby="cond">
+    <div class="wrap">
+      <h2 id="cond">Descuentos por monto</h2>
+      <p class="sub">Entre más compras, menos pagas. Los precios de la lista corresponden a cada tramo de compra. Consultar condiciones a BCV.</p>
+      <div class="tiers">
+        <div class="tier">
+          <p class="amt">90$</p>
+          <h3><i class="ri-price-tag-3-line"></i> Precio base</h3>
+          <p>Compra mínima para pedir. Precio de referencia de cada producto.</p>
+        </div>
+        <div class="tier hot">
+          <p class="amt">3%</p>
+          <h3><i class="ri-gift-line"></i> Desde 100$ hasta 499$</h3>
+          <p>Descuento del 3% sobre el precio base.</p>
+        </div>
+        <div class="tier">
+          <p class="amt">7%</p>
+          <h3><i class="ri-fire-line"></i> Desde 500$</h3>
+          <p>Descuento del 7% sobre el precio base.</p>
+        </div>
+      </div>
+      <div class="perks">
+        <div class="perk"><b><i class="ri-truck-line"></i> Envío gratis</b><span>A nivel nacional por compras desde 200$.</span></div>
+        <div class="perk"><b><i class="ri-e-bike-2-line"></i> Delivery gratis</b><span>En Valencia por compras desde 150$.</span></div>
+        <div class="perk"><b><i class="ri-money-dollar-circle-line"></i> Pago en divisas</b><span>Consulta por descuentos de hasta 18% cancelando en divisas.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog" id="catalogo" aria-labelledby="cat">
+    <div class="wrap">
+      <h2 id="cat">Catálogo</h2>
+      <p class="sub">Productos agrupados por categoría, como en la lista original. Los precios son en dólares según la lista del 10/11/2026.</p>
+      <div class="tools">
+        <label><span style="position:absolute;left:-9999px">Buscar</span><input type="search" id="q" placeholder="Buscar código, referencia, modelo o marca (ej. aveo, mahle, A301)" autocomplete="off"></label>
+        <label><span style="position:absolute;left:-9999px">Categoría</span><select id="cat-sel"><option value="">Todas las categorías</option></select></label>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+
+      <!-- Barra de Zoom y Navegación Rápida para Celulares -->
+      <div class="mobile-zoom-bar" id="mobile-zoom-bar">
+        <div class="zoom-title-group">
+          <i class="ri-search-2-line zoom-icon"></i>
+          <span>Vista Celular:</span>
+        </div>
+        <div class="zoom-btn-group">
+          <button type="button" id="btn-zoom-out" class="btn-zoom" aria-label="Alejar lista para moverse más rápido" title="Alejar lista para desplazarte más rápido">
+            <i class="ri-subtract-line"></i>
+            <span>Alejar (-)</span>
+          </button>
+          <span class="zoom-level-badge" id="zoom-level-text">100%</span>
+          <button type="button" id="btn-zoom-in" class="btn-zoom" aria-label="Acercar o expandir lista para más detalle" title="Acercar lista para ver detalles">
+            <i class="ri-add-line"></i>
+            <span>Acercar (+)</span>
+          </button>
+        </div>
+        <button type="button" id="btn-toggle-view" class="btn-toggle-view" aria-label="Alternar entre modo tabla y tarjeta">
+          <i class="ri-layout-line icon-view-cards"></i>
+          <span id="view-mode-label">Tarjetas</span>
+        </button>
+      </div>
+
+      <div class="table-wrap" id="table-wrap">
+        <table>
+          <thead><tr>
+            <th>Código</th>
+            <th>Referencia</th>
+            <th>Modelos que aplica</th>
+            <th>Paq.</th>
+            <th>Marca</th>
+            <th class="num">90$</th>
+            <th class="num">Desde 100$ (3%)</th>
+            <th class="num">Desde 500$ (7%)</th>
+            <th class="act">Pedir</th>
+          </tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      
+      <div id="load-sentinel" class="load-more-wrap">
+        <button type="button" id="btn-load-more" class="btn-load-more" style="display:none">Cargar más productos</button>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Botón flotante para ver Carrito / Pedido -->
+<button type="button" id="cart-float-btn" class="cart-floating-btn" aria-label="Ver lista de productos y enviar pedido">
+  <i class="ri-shopping-cart-2-line"></i>
+  <span>Ver Pedido</span>
+  <span class="cart-badge" id="cart-badge">0</span>
+</button>
+
+<!-- Slide-out Drawer del Carrito -->
+<div id="cart-backdrop" class="cart-backdrop" aria-hidden="true"></div>
+<aside id="cart-drawer" class="cart-drawer" aria-labelledby="cart-title" aria-modal="true" role="dialog">
+  <div class="cart-header">
+    <h2 id="cart-title">
+      <i class="ri-shopping-cart-2-line"></i>
+      Tu Pedido
+    </h2>
+    <button type="button" id="cart-close" class="cart-close-btn" aria-label="Cerrar pedido"><i class="ri-close-line"></i></button>
+  </div>
+  
+  <div id="cart-tier-banner" class="cart-tier-banner">
+    <span>Tramo actual: <strong id="cart-tier-badge">Precio base (90$)</strong></span>
+  </div>
+
+  <!-- Banner de Envío Gratis -->
+  <div id="cart-shipping-banner" class="cart-shipping-banner">
+    <div class="shipping-banner-info">
+      <i id="shipping-banner-icon" class="ri-truck-line shipping-icon"></i>
+      <div class="shipping-text-wrap" id="shipping-banner-text">
+        Te faltan <strong class="highlight-amount">$200,00</strong> para tener <strong class="highlight-target">Envío Gratis</strong>
+      </div>
+    </div>
+    <div class="shipping-progress-track" aria-hidden="true">
+      <div id="shipping-progress-bar" class="shipping-progress-bar" style="width: 0%;"></div>
+    </div>
+  </div>
+  
+  <div class="cart-body" id="cart-body">
+    <!-- Contenido dinámico del carrito -->
+  </div>
+  
+  <div class="cart-footer">
+    <div class="cart-totals-row">
+      <span>Total de piezas:</span>
+      <strong id="cart-total-qty">0 unids.</strong>
+    </div>
+    <div class="cart-totals-row">
+      <span>Condición aplicada:</span>
+      <strong id="cart-tier-name">Precio base</strong>
+    </div>
+    <div class="cart-totals-row total-main">
+      <span>Total Estimado:</span>
+      <span id="cart-total-price">$0.00</span>
+    </div>
+
+    <!-- Botón Enviar a WhatsApp -->
+    <button type="button" id="btn-send-whatsapp" class="btn-whatsapp">
+      <i class="ri-whatsapp-line"></i>
+      <span>Enviar Pedido a WhatsApp</span>
+    </button>
+  </div>
+</aside>
+
+<!-- Modal Emergente de Selección de Asesora de Ventas -->
+<div id="vendor-modal-backdrop" class="vendor-modal-backdrop" aria-hidden="true"></div>
+<div id="vendor-modal" class="vendor-modal" role="dialog" aria-modal="true" aria-labelledby="vendor-modal-title">
+  <div class="vendor-modal-header">
+    <div class="vendor-modal-title-box">
+      <h3 id="vendor-modal-title">Selecciona una Asesora</h3>
+      <p>Elige a cuál de nuestras 3 vendedoras deseas enviar tu lista de repuestos:</p>
+    </div>
+    <button type="button" id="vendor-modal-close" class="vendor-modal-close" aria-label="Cerrar"><i class="ri-close-line"></i></button>
+  </div>
+  <div class="vendor-modal-body">
+    <div class="vendor-choices-list">
+      <button type="button" class="btn-vendor-choice" data-vendor="1">
+        <div class="vendor-avatar">
+          <i class="ri-user-3-line"></i>
+        </div>
+        <div class="vendor-details">
+          <span class="vendor-choice-name">Maria Trompetero</span>
+          <span class="vendor-choice-phone">WhatsApp: 0412-8963010</span>
+        </div>
+        <div class="vendor-choice-action">
+          <span>Enviar</span>
+          <i class="ri-whatsapp-line"></i>
+        </div>
+      </button>
+
+      <button type="button" class="btn-vendor-choice" data-vendor="2">
+        <div class="vendor-avatar">
+          <i class="ri-user-3-line"></i>
+        </div>
+        <div class="vendor-details">
+          <span class="vendor-choice-name">Elangel Tiberio</span>
+          <span class="vendor-choice-phone">WhatsApp: 0422-0402282</span>
+        </div>
+        <div class="vendor-choice-action">
+          <span>Enviar</span>
+          <i class="ri-whatsapp-line"></i>
+        </div>
+      </button>
+
+      <button type="button" class="btn-vendor-choice" data-vendor="3">
+        <div class="vendor-avatar">
+          <i class="ri-user-3-line"></i>
+        </div>
+        <div class="vendor-details">
+          <span class="vendor-choice-name">Natalia Lopez</span>
+          <span class="vendor-choice-phone">WhatsApp: 0414-4982782</span>
+        </div>
+        <div class="vendor-choice-action">
+          <span>Enviar</span>
+          <i class="ri-whatsapp-line"></i>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-disruptive">
+  <!-- Borde Neon Superior Luminoso -->
+  <div class="footer-neon-line"></div>
+
+  <!-- Hero Pitch Disruptivo -->
+  <div class="footer-hero-pitch">
+    <div class="wrap">
+      <div class="pitch-content">
+        <span class="pitch-tag"><i class="ri-flashlight-line"></i> DISTRIBUCION AUTOMOTRIZ MAYORISTA</span>
+        <h2 class="pitch-title">POTENCIA EL STOCK DE TU NEGOCIO CON WILKA PARTS</h2>
+        <p class="pitch-desc">Mas de 1.000 repuestos automotrices de alta rotacion con despacho directo desde Valencia para todo el territorio nacional.</p>
+
+        <div class="pitch-badges">
+          <div class="pitch-badge">
+            <i class="ri-truck-line badge-icon-ri"></i>
+            <div>
+              <strong>Envios Nacionales</strong>
+            </div>
+          </div>
+          <div class="pitch-badge">
+            <i class="ri-percent-line badge-icon-ri"></i>
+            <div>
+              <strong>Hasta 18% Descuento</strong>
+              <small>Condicion especial en divisas</small>
+            </div>
+          </div>
+          <div class="pitch-badge">
+            <i class="ri-archive-2-line badge-icon-ri"></i>
+            <div>
+              <strong>Compra Minima 90</strong>
+              <small>Surtido agil sin trabas</small>
+            </div>
+          </div>
+          <div class="pitch-badge">
+            <i class="ri-shield-check-line badge-icon-ri"></i>
+            <div>
+              <strong>Repuestos Garantizados</strong>
+              <small>Marcas lideres certificadas</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido Principal del Footer -->
+  <div class="wrap">
+    <div class="footer-grid">
+      <!-- Columna 1: Identidad Corporativa -->
+      <div class="footer-col brand-col">
+        <div class="footer-brand-title">
+          <span class="brand-wilka">WILKA</span>
+          <span class="brand-parts">PARTS</span>
+          <span class="brand-inv">INVERSIONES</span>
+        </div>
+        <p class="brand-text">Distribuidora automotriz especializada en amortiguadores, anillos, bombas, bobinas, bujias y tren delantero para las marcas mas vendidas de Venezuela.</p>
+        <div class="brand-location">
+          <i class="ri-map-pin-2-fill"></i>
+          <span>Michelena, Valencia - Estado Carabobo</span>
+        </div>
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span>Cotizaciones y pedidos en tiempo real</span>
+        </div>
+      </div>
+
+      <!-- Columna 2: Canales Oficiales -->
+      <div class="footer-col">
+        <h4 class="footer-col-title"><i class="ri-links-line"></i> Canales Oficiales</h4>
+        <div class="footer-contact-links">
+          <a href="https://www.instagram.com/wilkaparts" target="_blank" rel="noopener" class="footer-social-link instagram">
+            <i class="ri-instagram-line"></i>
+            <div>
+              <strong>Instagram Oficial</strong>
+              <span>@wilkaparts</span>
+            </div>
+            <span class="social-tag">Seguir</span>
+          </a>
+        </div>
+        <div class="footer-hours">
+          <i class="ri-time-line"></i>
+          <div>
+            <div><strong>Lunes a Viernes:</strong> 8:00am a 5:00pm</div>
+            <div><strong>Sábados:</strong> 8:00am a 2:00pm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra Inferior de Copyright -->
+    <div class="footer-bottom-bar">
+      <p><i class="ri-copyright-line"></i> 2026 <strong>Wilka Parts Inversiones C.A.</strong> Todos los derechos reservados. Michelena, Valencia, Venezuela.</p>
+      <div class="footer-tech-tag">
+        <span class="pulse-dot"></span>
+        <i class="ri-code-s-slash-line"></i>
+        <span>Catalogo Web de Alto Rendimiento</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="app.js"></script>
+</body>
+</html>
